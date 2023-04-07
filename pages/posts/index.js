@@ -1,6 +1,8 @@
 import Format from "../../layout/format"
 import Author from "../../components/_child/author"
 import Image from "next/image"
+import Related from "../../components/_child/related"
+
 export default function index() {
   return (
     <Format>
@@ -19,10 +21,10 @@ export default function index() {
                 <p>Blockchain is a shared, immutable ledger that facilitates the process of recording transactions and tracking assets in a business network. An asset can be tangible (a house, car, cash, land) or intangible (intellectual property, patents, copyrights, branding).</p>
                 <p>Blockchain is a shared, immutable ledger that facilitates the process of recording transactions and tracking assets in a business network. An asset can be tangible (a house, car, cash, land) or intangible (intellectual property, patents, copyrights, branding).</p>
                 <p>Blockchain is a shared, immutable ledger that facilitates the process of recording transactions and tracking assets in a business network. An asset can be tangible (a house, car, cash, land) or intangible (intellectual property, patents, copyrights, branding).</p>
-                
+
             </div>
         </div>
-
+        <Related></Related>
       </section>
     </Format>
   )

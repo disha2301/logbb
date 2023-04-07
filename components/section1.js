@@ -23,7 +23,7 @@ export default function section1() {
             slidesPerView={1}
             loop={true}
             autoplay={{
-                delay:4000
+                delay:2000
             }}
             >
 

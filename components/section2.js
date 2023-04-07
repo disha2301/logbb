@@ -8,7 +8,7 @@ export default function section2() {
         <h1 className="font-bold text-4xl py-12 text-center">Latest Posts</h1>
         
         {/* grid column */}
-        <div className="grid md:grid-cols-2 lg:grid-col-3 fap-14">
+        <div className="grid md:grid-cols-3 lg:grid-col-3 gap-14">
             {Post()}
             {Post()}
             {Post()}

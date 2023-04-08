@@ -2,10 +2,11 @@
 import Image from "next/image"
 import Link from "next/link"
 import Author from "./_child/author"
-import getPost from "../library/helper"
+import fetcher from "../library/fetcher"
 
 export default function section2() {
-    console.log(process.env.baseURL)
+    const{data,isLoading,isError} = fetcher('api/posts/post')
+    if(data)console.log(data)
   return (
     <section className="container mx:auto md:px-20 py-10">
         <h1 className="font-bold text-4xl py-12 text-center">Latest Posts</h1>

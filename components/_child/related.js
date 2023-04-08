@@ -7,12 +7,18 @@ export default function related() {
     <section className="pt-20">
         <h1 className="font-bold text-3xl py-10 text-center">Related</h1>
         <div className="flex flex-col gap-10">
+            {/* {Post()}
             {Post()}
             {Post()}
             {Post()}
             {Post()}
-            {Post()}
-            {Post()}
+            {Post()} */}
+            <Post/>
+            <Post/>
+            <Post/>
+            <Post/>
+            <Post/>
+            <Post/>
 
         </div>
     </section>

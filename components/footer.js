@@ -1,9 +1,8 @@
-
 import { ImFacebook2,ImYoutube,ImTwitter } from "react-icons/im";
 // import Link from "next/link";
 
 export default function footer(){
-
+  
   const bg = {
     background: "url('/images/bg.jpg') no-repeat",
     backgroundPosition: "bottom left",

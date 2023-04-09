@@ -12,7 +12,7 @@ import Error from "./_child/error"
 
 export default function section1() {
 
-    const{data,isLoading,isError} = fetcher('api/posts/post')
+    const{data,isLoading,isError} = fetcher('api/trending')
     if(isLoading)return <Spinner></Spinner>
     if(isError)return <Error></Error>
 
@@ -34,32 +34,34 @@ export default function section1() {
             }}
             >
             {
-                data.map((value,index) =>{
+                data.map((value,index) =>
+                (
                     <SwiperSlide key={index}><Slide data={value}></Slide></SwiperSlide>
-                })
+                ))
             }
-    </Swiper>
-         
+    </Swiper> 
     </div>
    </section>
   )
 }
 
-function Slide(){
+function Slide({data}){
+    const {id,title,category,img,published,description, author}=data;
+
     return(
         <div className="grid md:grid-cols-2">
             <div className="image">
-                <Link href={"/"}><Image src={"/images/image1.jpeg"} width={600} height={600}/></Link>
+                <Link href={`/posts/${id}`}><Image src={img || '/'} width={600} height={600}/></Link>
             </div>
             <div className="info flex justify-center flex-col">
                 <div className="category">
-                    <Link href={"/"} className="text-orange-600 hover:text-orange-800">Business,Travel</Link>
-                    <Link href={"/"} className="text-gray-600 hover:text-gray-800">-July 3, 2023</Link>
+                    <Link href={`/posts/${id}`} className="text-orange-600 hover:text-orange-800">{category || "Unknown"}</Link>
+                    <Link href={`/posts/${id}`} className="text-gray-600 hover:text-gray-800">&nbsp;-{published || "Unknown"}</Link>
                 </div>
                 <div className="title">
-                    <Link href="/" className="text-3xl md:text-6xl font-bold text-gray-800 hover:text-gray-600">Blockchain technology is an advanced database mechanism</Link>
-                    <p className="text-gray-500 py-3">There are four main types of blockchain networks: public blockchains, private blockchains, consortium blockchains and hybrid blockchains.</p>
-                    <Author></Author>
+                    <Link href={`/posts/${id}`} className="text-3xl md:text-6xl font-bold text-gray-800 hover:text-gray-600">{title || "Unknown"}</Link>
+                    <p className="text-gray-500 py-3">{description || "description"}</p>
+                    {author?<Author {...author}></Author>:<></>}
                 </div>
             </div>
         </div>

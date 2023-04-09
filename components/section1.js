@@ -6,8 +6,15 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
 import SwiperCore,{Autoplay} from "swiper";
+import fetcher from "../library/fetcher";
+import Spinner from "./spinner"
+import Error from "./_child/error"
 
 export default function section1() {
+
+    const{data,isLoading,isError} = fetcher('api/posts/post')
+    if(isLoading)return <Spinner></Spinner>
+    if(isError)return <Error></Error>
 
     SwiperCore.use([Autoplay])
     const bg = {
@@ -26,13 +33,11 @@ export default function section1() {
                 delay:2000
             }}
             >
-
-            <SwiperSlide>{Slide()}</SwiperSlide>
-            <SwiperSlide>{Slide()}</SwiperSlide>          
-            <SwiperSlide>{Slide()}</SwiperSlide>
-            <SwiperSlide>{Slide()}</SwiperSlide>          
-            <SwiperSlide>{Slide()}</SwiperSlide>
-            ...
+            {
+                data.map((value,index) =>{
+                    <SwiperSlide key={index}><Slide data={value}></Slide></SwiperSlide>
+                })
+            }
     </Swiper>
          
     </div>
